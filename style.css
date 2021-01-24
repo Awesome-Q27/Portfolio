@@ -371,7 +371,7 @@ button {
 
 /* Contact */
 #contact {
-    background-color: var(--color-pink);
+    background-color: #B2CAD6;
 }
 .contact__title, .contact__email, .contact__rights {
     color: var(--color-white);
