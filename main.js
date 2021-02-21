@@ -9,7 +9,6 @@ function scrollIntiView(selector) {
 
 
 
-
 // Make navbar transparent when it is on the top
 const navbar = document.querySelector('#navbar');
 const navbarHeight = navbar.getBoundingClientRect().height;
@@ -50,6 +49,20 @@ document.addEventListener('scroll', () => {
     home.style.opacity = 1 - window.scrollY / homeheight;
 });
 
+// Show "arrow up" button when scrolling down
+const arrowUp = document.querySelector('.arrow-up');
+document.addEventListener('scroll', () => {
+    if (window.scrollY > homeheight / 2) {
+        arrowUp.classList.add('visible');
+    } else {
+        arrowUp.classList.remove('visible');
+    }
+});
+
+// Handle click on "arrow up" btn
+arrowUp.addEventListener("click", () => {
+    scrollIntiView('#home');
+});
 
 
 

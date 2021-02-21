@@ -13,6 +13,7 @@
     --color-yellow: #fff7d1;
     --color-orange: #feb546;
     --color-black: #000000;
+    --color-q: #A8BDBF;
 
     /* Font size */
     --font-large: 48px;
@@ -108,7 +109,7 @@ button {
     z-index: 1; /* 무조건 가장 위에 */
 }
 #navbar.navbar--scroll {
-    background-color:#A8BDBF;
+    background-color: var(--color-q);
     padding: 8px;
 
 }
@@ -409,6 +410,27 @@ button {
     color: var(--color-yellow);
     transition: all var(--anamation-duration) ease-in;
 }
+
+/* Scroll Arrow */
+.arrow-up {
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+    width: 70px;
+    height: 70px;
+    font-size: 50px;
+    color: var(--color-white);
+    background-color: var(--color-q);
+    border-radius: 50%;
+    opacity: 0;
+    pointer-events: none; /* 클릭이 안되도록 */
+    transition: opacity 300ms ease-in;
+}
+.arrow-up.visible {
+    opacity: 1;
+    pointer-events: auto; /* 클릭이 안되도록 */
+}
+
 
 /* For below 768px screen width */
 @media screen and (max-width: 768px) {
