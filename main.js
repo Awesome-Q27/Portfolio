@@ -1,5 +1,15 @@
 'user strict';
 
+// 함수 정의
+function scrollIntiView(selector) {
+    var scrollTo = document.querySelector(selector); // 문자열을 가지는 element 탐색
+    scrollTo.scrollIntoView({behavior: 'smooth'});
+}
+
+
+
+
+
 // Make navbar transparent when it is on the top
 const navbar = document.querySelector('#navbar');
 const navbarHeight = navbar.getBoundingClientRect().height;
@@ -15,11 +25,6 @@ document.addEventListener('scroll', () => {
 
 
 // Handle scrolling when tapping on the navbar menu
-function scrollIntiView(selector) {
-    var scrollTo = document.querySelector(selector); // 문자열을 가지는 element 탐색
-    scrollTo.scrollIntoView({behavior: 'smooth'});
-}
-
 const navbarMenu = document.querySelector('.navbar__menu');
 navbarMenu.addEventListener('click', (event) => {
     const link = event.target.dataset.link; // 지정한 문자열이 들어 있다
@@ -37,4 +42,17 @@ contackMeBtn.addEventListener('click', () => {
     console.log('#contact');
     scrollIntiView('#contact');
 });
+
+// Make home slowly fade to transparent as the window scrolls down
+const home = document.querySelector('.home__container');
+const homeheight = home.getBoundingClientRect().height;
+document.addEventListener('scroll', () => {
+    home.style.opacity = 1 - window.scrollY / homeheight;
+});
+
+
+
+
+
+
 
