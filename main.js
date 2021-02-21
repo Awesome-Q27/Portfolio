@@ -7,8 +7,6 @@ function scrollIntiView(selector) {
 }
 
 
-
-
 // Make navbar transparent when it is on the top
 const navbar = document.querySelector('#navbar');
 const navbarHeight = navbar.getBoundingClientRect().height;
@@ -22,7 +20,6 @@ document.addEventListener('scroll', () => {
     }
 });
 
-
 // Handle scrolling when tapping on the navbar menu
 const navbarMenu = document.querySelector('.navbar__menu');
 navbarMenu.addEventListener('click', (event) => {
@@ -30,10 +27,16 @@ navbarMenu.addEventListener('click', (event) => {
     if (link == null) {
         return;
     }
-
-    console.log(link);
+    navbarMenu.classList.remove('open');
     scrollIntiView(link);
 });
+
+// Navbar toggle button for small screen
+const navbarToggleBtn = document.querySelector('.navbar__toggle-btn');
+navbarToggleBtn.addEventListener('click', () => {
+    navbarMenu.classList.toggle('open');
+});
+
 
 // Handle click on "Contact me" button on home
 const contackMeBtn = document.querySelector('.home__contact');
@@ -65,11 +68,19 @@ arrowUp.addEventListener("click", () => {
 });
 
 
+
+
 // Projects
 const workBtnContainer = document.querySelector('.work__caregories');
 const projectContainer = document.querySelector('.work__projects');
 const projects = document.querySelectorAll('.project');
 workBtnContainer.addEventListener('click', (e) => {
+    // Remove selection from the previous item and select the new one
+    const active = document.querySelector('.category__btn.selected');
+    active.classList.remove('selected');
+    const target = e.target.nodeName === 'BUTTON' ? e.target : e.target.parentNode; // span 클릭시의 오류 방지
+    target.classList.add('selected');
+
     const filter = e.target.dataset.filter || e.target.parentNode.dataset.filter;
     if (filter == null) {
         return;

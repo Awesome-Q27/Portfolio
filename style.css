@@ -111,7 +111,6 @@ button {
 #navbar.navbar--scroll {
     background-color: var(--color-q);
     padding: 8px;
-
 }
 .navbar__menu {
     display: flex;
@@ -131,14 +130,12 @@ button {
     margin: 0 4px;
     cursor: pointer;
     color: var(--color-white);
+    border: 1px solid transparent;
+    border-radius: var(--size-border-radius);
 }
 .navbar__menu__item:hover {
+    border-color: white;
     background-color:#5C7373;
-    border-radius: var(--size-border-radius);
-}
-.navbar__menu__item.active {
-    border: 1px solid var(--color-white);
-    border-radius: var(--size-border-radius);
 }
 .navbar__toggle-btn {
     position: absolute;
@@ -283,7 +280,7 @@ button {
     font-size: var(--font-regular);
     padding: 8px 48px;
 }
-.category__btn.active, .category__btn:hover {
+.category__btn.selected, .category__btn:hover {
     background-color: var(--color-pink);
     color: var(--color-white);
 }
@@ -301,7 +298,7 @@ button {
     opacity: 0;
     transition: all var(--anamation-duration) ease-in;
 }
-.category__btn.active .category__count, .category__btn:hover .category__count {
+.category__btn.selected .category__count, .category__btn:hover .category__count {
     opacity: 1;
     top: 0;
 }
@@ -352,17 +349,17 @@ button {
     transform: translateY(0px);
 }
 .project__description h3 {
-    color: var(--color-white);
+    color: var(--color-orange);
 }
 .project__description h3:after {
     content: '';
-    width: 25px;
+    width: 50px;
     height: 2px;
     background-color: var(--color-dark-white);
     display: block;
     position: relative;
-    left:50%;
-    margin-left: -12px;
+    left: 50%;
+    transform: translateX(-50%);
     margin-top: 8px;
 }
 
@@ -449,12 +446,19 @@ button {
     #navbar {
         flex-direction: column;
         align-items: flex-start;
+        background-color: var(--color-q);
+    }
+    #navbar.navbar--scroll {
+        padding: 16px;
     }
     .navbar__menu {
         flex-direction: column;
         text-align: center;
         width: 100%;
         display: none;
+    }
+    .navbar__menu.open {
+        display: block;
     }
     .about__majors {
         flex-direction: column;
