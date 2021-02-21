@@ -105,10 +105,12 @@ button {
     color: var(--color-white);
     background-color: transparent;
     transition: all var(--anamation-duration) ease-in-out;
+    z-index: 1; /* 무조건 가장 위에 */
 }
 #navbar.navbar--scroll {
     background-color:#A8BDBF;
     padding: 8px;
+
 }
 .navbar__menu {
     display: flex;
@@ -440,3 +442,4 @@ button {
         height: 80px;
     }
 }
+
