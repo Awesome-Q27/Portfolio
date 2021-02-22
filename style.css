@@ -133,6 +133,9 @@ button {
     border: 1px solid transparent;
     border-radius: var(--size-border-radius);
 }
+.navbar__menu__item.active {
+    border: 1px solid var(--color-white);
+}
 .navbar__menu__item:hover {
     border-color: white;
     background-color:#5C7373;
@@ -272,6 +275,20 @@ button {
 .tools, .etc {
     padding: 20px;
 }
+.tools__list, .etc__list {
+    margin-top: 8px;
+}
+#skills h3:after {
+    content: '';
+    width: 50px;
+    height: 2px;
+    background-color: var(--color-dark-white);
+    display: block;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
 
 /* Work */
 .work__caregories {
