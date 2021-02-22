@@ -1,9 +1,16 @@
 'user strict';
 
 // 함수 정의
-function scrollIntiView(selector) {
-    var scrollTo = document.querySelector(selector); // 문자열을 가지는 element 탐색
-    scrollTo.scrollIntoView({behavior: 'smooth'});
+function scrolling(selector) {
+    var target = document.querySelector(selector); // 문자열을 가지는 element 탐색'
+    // 절대좌표를 이용한 이동
+    const absoluteTop = window.pageYOffset + target.getBoundingClientRect().top;
+    window.scrollTo({
+        top: absoluteTop - 50,
+        behavior: 'smooth'
+    });
+    // 엘리멘트 자체로 이동
+    // target.scrollIntoView({behavior: 'smooth'});
 }
 
 
@@ -28,7 +35,7 @@ navbarMenu.addEventListener('click', (event) => {
         return;
     }
     navbarMenu.classList.remove('open');
-    scrollIntiView(link);
+    scrolling(link);
 });
 
 // Navbar toggle button for small screen
@@ -42,7 +49,7 @@ navbarToggleBtn.addEventListener('click', () => {
 const contackMeBtn = document.querySelector('.home__contact');
 contackMeBtn.addEventListener('click', () => {
     console.log('#contact');
-    scrollIntiView('#contact');
+    scrolling('#contact');
 });
 
 // Make home slowly fade to transparent as the window scrolls down
@@ -66,8 +73,6 @@ document.addEventListener('scroll', () => {
 arrowUp.addEventListener("click", () => {
     scrollIntiView('#home');
 });
-
-
 
 
 // Projects
